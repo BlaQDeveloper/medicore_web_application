@@ -15,7 +15,8 @@ const geistMono = Geist_Mono({
 });
 
 const inter = Inter({
-  subsets: ["latin"]
+  subsets: ["latin"],
+  display: "swap"
 });
 
 export const metadata: Metadata = {
@@ -27,11 +28,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-slate-50 text-slate-900 min-h-screen flex flex-col`}
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <NavigationBar/>
       <body className={`${inter.className} min-h-full flex flex-col`}>
-        <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <NavigationBar />
+        <main>
           {children}
         </main>
       </body>
